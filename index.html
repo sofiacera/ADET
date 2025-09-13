@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OMSC Department | Occidental Mindoro State College</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body, h1, h2, h3, p, ul, li, nav, footer {
+      margin: 0; padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    ul {
+      list-style: none;
+    }
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(0, 51, 102, 0.9);
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-container img {
+      height: 40px;
+      width: auto;
+    }
+    .logo {
+      font-weight: 600;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      cursor: default;
+    }
+    nav ul {
+      display: flex;
+      gap: 25px;
+    }
+    nav ul li a {
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    nav ul li a:hover,
+    nav ul li a.active {
+      background: #00aaff;
+      color: white;
+    }
+    .hero {
+      height: 100vh;
+      background: url('omsc.png') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+      color: white;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+      position: relative;
+      margin-top: 80px;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 51, 102, 0.6);
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      max-width: 700px;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    .hero p {
+      color: white !important;
+      font-size: 1.25rem;
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+    .btn-primary {
+      background: #00aaff;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: #008ecc;
+    }
+    main {
+      max-width: 1100px;
+      margin: 60px auto 80px;
+      padding: 0 20px;
+    }
+    section {
+      margin-bottom: 60px;
+    }
+    section h2 {
+      font-size: 2rem;
+      color: #003366;
+      margin-bottom: 15px;
+      border-left: 5px solid #00aaff;
+      padding-left: 15px;
+    }
+    section p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .card {
+      background: white;
+      padding: 25px 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .card h3 {
+      color: #003366;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .card p {
+      color: #666;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    footer {
+      background: #002244;
+      color: #bbb;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+    }
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      nav ul {
+        gap: 15px;
+      }
+    }
+
+    /* Search bar styling */
+.search-form {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  flex-shrink: 0;
+}
+.search-form input[type="search"] {
+  padding: 7px 12px;
+  font-size: 1rem;
+  border-radius: 20px 0 0 20px;
+  border: none;
+  outline: none;
+  width: 220px;
+  transition: width 0.3s ease;
+}
+.search-form input[type="search"]:focus {
+  width: 280px;
+  box-shadow: 0 0 8px rgba(0, 170, 255, 0.5);
+}
+.search-form button {
+  padding: 7px 14px;
+  border: none;
+  background-color: #00aaff;
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.search-form button:hover {
+  background-color: #008ecc;
+}
+
+/* Responsive adjustments for search bar */
+@media (max-width: 900px) {
+  .search-form {
+    margin-left: 10px;
+  }
+  .search-form input[type="search"] {
+    width: 150px;
+  }
+  .search-form input[type="search"]:focus {
+    width: 200px;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .search-form {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-left: 0;
+  }
+  .search-form input[type="search"] {
+    width: 70%;
+    border-radius: 20px 0 0 20px;
+  }
+  .search-form button {
+    border-radius: 0 20px 20px 0;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="omsc.logo.png" alt="OMSC Logo" />
+      <div class="logo">OCCIDENTAL MINDORO STATE COLLEGE</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="news.html">News & Events</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <form class="search-form" onsubmit="return false;">
+  <input
+    type="search"
+    id="searchInput"
+    placeholder="Search faculty, news, or courses"
+    aria-label="Search"
+    name="q"
+  />
+  <button type="submit" aria-label="Search button">🔍</button>
+</form>
+
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Innovate, Learn, Lead</h1>
+      <p>Welcome to the OMSC Department at Occidental Mindoro State College.</p>
+      <a href="programs.html" class="btn-primary">Explore Our Programs</a>
+    </div>
+  </section>
+
+  <main>
+    <section id="about">
+      <h2>About Us</h2>
+      <p>
+        Our department fosters a vibrant community dedicated to research, innovation, and education in
+        various academic disciplines. We provide students with the knowledge and skills needed to
+        excel in academia, industry, and community service.
+      </p>
+    </section>
+
+    <section id="programs">
+      <h2>Programs Offered</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Bachelor of Science in Computer Science</h3>
+          <p>Explore the fundamentals of programming, algorithms, and system design with opportunities to specialize in AI, cybersecurity, and more.</p>
+        </div>
+        <div class="card">
+          <h3>Master of Science in Software Engineering</h3>
+          <p>Gain advanced knowledge in software development methodologies, project management, and software architecture.</p>
+        </div>
+        <div class="card">
+          <h3>PhD in Computer Science</h3>
+          <p>Engage in cutting-edge research to push the boundaries of computer science, focusing on AI, systems, and theoretical foundations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faculty">
+      <h2>Faculty Spotlight</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Dr. Alice Johnson</h3>
+          <p>Expert in Artificial Intelligence with numerous publications in machine learning.</p>
+        </div>
+        <div class="card">
+          <h3>Dr. Mark Patel</h3>
+          <p>Leads the Cybersecurity lab focusing on secure systems and networks.</p>
+        </div>
+        <div class="card">
+          <h3>Dr. Elena Ruiz</h3>
+          <p>Specializes in Human-Computer Interaction and accessibility research.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 OMSC Department, Occidental Mindoro State College
+  </footer>
+
+  <script>
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+      if (link.href === window.location.href) {
+        link.classList.add('active');
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('searchInput');
+  const cards = document.querySelectorAll('.card');
+
+  searchInput.addEventListener('input', () => {
+    const filter = searchInput.value.toLowerCase().trim();
+
+    cards.forEach(card => {
+      const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+      const desc = card.querySelector('p')?.textContent.toLowerCase() || '';
+
+      if (title.includes(filter) || desc.includes(filter)) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+  </script>
+</body>
+</html>
